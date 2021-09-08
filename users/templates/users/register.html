@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<header class="masthead " style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="container ">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="site-heading">
+                    <h1 class="text-primary">Creative Mind </h1>
+                    <span class="subheading">A Place Share Your Knowledge</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="p-3 mb-2 bg-dark text-white row-xl-10">
+    <div class="content-section text-white bg-dark col-lg-4 offset-md-4">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group ">
+                <legend class="border-bottom mb-4 ">Register Here !</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info btn-sm" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2 text-primary" href="{% url 'login' %}">Sign In</a>
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock content %}
